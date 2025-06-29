@@ -33,7 +33,7 @@
 
     <script>
         const foxyJumpscare = document.getElementById("foxyJumpscare");
-        const chance = 1 / 100; // Шанс 1 к 10000
+        const chance = 1 / 10000; // Шанс 1 к 10000
 
         // Проверяем каждую секунду
         setInterval(() => {
@@ -42,7 +42,7 @@
                 foxyJumpscare.style.display = "block";
                 
                 // Проигрываем звук (опционально)
-                const audio = new Audio("www.myinstants.com/media/sounds/fnaf-2-death-scream.mp3");
+                const audio = new Audio("https://www.myinstants.com/media/sounds/fnaf-2-death-scream.mp3");
                 audio.play();
 
                 // Убираем скример через 2 секунды
