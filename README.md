@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -28,12 +27,12 @@
 
     <!-- Скрытый скример Фокси -->
     <div id="foxyJumpscare">
-        <img src="https://example.com/foxy_jumpscare.jpg" alt="FNaF 2 Foxy Jumpscare">
+        <img src="https://media.tenor.com/bS_6FmV06qMAAAAj/foxy-jumpscare.gif" alt="FNaF 2 Foxy Jumpscare">
     </div>
 
     <script>
         const foxyJumpscare = document.getElementById("foxyJumpscare");
-        const chance = 1 / 10000; // Шанс 1 к 10000
+        const chance = 1 / 100; // Шанс 1 к 10000
 
         // Проверяем каждую секунду
         setInterval(() => {
@@ -42,7 +41,7 @@
                 foxyJumpscare.style.display = "block";
                 
                 // Проигрываем звук (опционально)
-                const audio = new Audio("https://example.com/foxy_scream.mp3");
+                const audio = new Audio("www.myinstants.com/media/sounds/fnaf-2-death-scream.mp3");
                 audio.play();
 
                 // Убираем скример через 2 секунды
