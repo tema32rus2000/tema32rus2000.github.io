@@ -22,10 +22,7 @@
     </style>
 </head>
 <body>
-    <!-- Контент страницы -->
-    <h1>Осторожно, Фокси!</h1>
-    <p>Каждую секунду с шансом 1/10000 может появиться скример.</p>
-
+    
     <!-- Скрытый скример Фокси -->
     <div id="foxyJumpscare">
         <img src="https://media.tenor.com/bS_6FmV06qMAAAAj/foxy-jumpscare.gif" alt="FNaF 2 Foxy Jumpscare">
