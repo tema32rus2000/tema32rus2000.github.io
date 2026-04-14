@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-  <title>Teast · Social</title>
+  <title>Teast · Me & Gallery</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     * {
@@ -19,9 +19,8 @@
       align-items: center;
       justify-content: center;
       font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
-      /* Внешний отступ 60px со всех сторон */
-      padding: 60px;
-      animation: fadeIn 0.5s ease;
+      padding: 25px;
+      animation: fadeIn 0.4s ease;
     }
 
     @keyframes fadeIn {
@@ -31,22 +30,21 @@
 
     .fullscreen-card {
       width: 100%;
-      max-width: 650px;
+      max-width: 800px;
       background: #1a2e1f;
       border-radius: 20px;
       box-shadow: 0 15px 25px -5px rgba(0, 0, 0, 0.7), 0 0 0 1px #3b6e3b inset;
       overflow: hidden;
-      transition: all 0.2s;
-      animation: slideUp 0.5s cubic-bezier(0.2, 0.9, 0.4, 1);
+      animation: slideUp 0.4s cubic-bezier(0.2, 0.9, 0.4, 1);
       border: 1px solid #3a6e3a;
     }
 
     @keyframes slideUp {
-      0% { opacity: 0; transform: translateY(30px); }
+      0% { opacity: 0; transform: translateY(20px); }
       100% { opacity: 1; transform: translateY(0); }
     }
 
-    /* Шапка с вкладками – уменьшены отступы */
+    /* Шапка с вкладками */
     .tabs-header {
       display: flex;
       background: #0f1f12;
@@ -55,11 +53,9 @@
     }
 
     .tab-btn {
-      flex: 0 1 auto;
-      padding: 0.7rem 1.5rem;
+      padding: 0.6rem 1.2rem;
       font-size: 1.2rem;
       font-weight: 700;
-      letter-spacing: 0.3px;
       background: transparent;
       border: none;
       color: #b0d9b0;
@@ -69,7 +65,6 @@
       font-family: 'Arial Black', 'Impact', sans-serif;
       border-radius: 12px 12px 0 0;
       margin-right: 4px;
-      position: relative;
     }
 
     .tab-btn i {
@@ -85,19 +80,19 @@
     .tab-btn.active {
       background: #1a2e1f;
       color: #b3f0b3;
-      box-shadow: 0 -2px 0 #2e7d5e inset, 0 2px 6px rgba(0,0,0,0.3);
+      box-shadow: 0 -2px 0 #2e7d5e inset, 0 1px 6px rgba(0,0,0,0.3);
       border-bottom: 2px solid #1a2e1f;
     }
 
-    /* Контент – уменьшены внутренние отступы */
+    /* Контент */
     .tab-content {
-      padding: 1.2rem 1.2rem 1.5rem;
+      padding: 1.2rem 1.5rem 1.5rem;
       background: #1a2e1f;
     }
 
     .tab-pane {
       display: none;
-      animation: fadePane 0.2s ease;
+      animation: fadePane 0.15s ease;
     }
 
     .tab-pane.active {
@@ -105,7 +100,7 @@
     }
 
     @keyframes fadePane {
-      0% { opacity: 0.3; transform: translateY(4px); }
+      0% { opacity: 0.4; transform: translateY(3px); }
       100% { opacity: 1; transform: translateY(0); }
     }
 
@@ -123,39 +118,32 @@
       box-shadow: 0 5px 0 #1b4a2a, 0 8px 15px rgba(0,0,0,0.4);
       overflow: hidden;
       background: #1e402e;
-      transition: transform 0.2s;
     }
 
     .avatar-me img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      display: block;
-    }
-
-    .avatar-me:hover {
-      transform: scale(1.02);
     }
 
     h1 {
-      font-size: 2.4rem;
+      font-size: 2.6rem;
       font-weight: 900;
       text-transform: uppercase;
       font-family: 'Arial Black', 'Impact', sans-serif;
       color: #b8f0c8;
       text-shadow: 3px 3px 0 #1e4a2e, 2px 2px 0 #00000040;
-      letter-spacing: 0.5px;
       margin-bottom: 0.3rem;
     }
 
     .bio {
       background: #1f3b26;
-      padding: 0.8rem 1rem;
-      border-radius: 16px;
+      padding: 0.7rem 1rem;
+      border-radius: 14px;
       border-left: 6px solid #3a9e6a;
-      font-size: 0.95rem;
+      font-size: 1rem;
       color: #daf0da;
-      margin: 1rem 0 0.8rem;
+      margin: 1rem 0 1.2rem;
       box-shadow: inset 0 1px 4px #0c1e0c, 0 3px 0 #142314;
       text-align: left;
     }
@@ -165,17 +153,57 @@
       margin-right: 6px;
     }
 
+    /* Большой скриншот в Me */
+    .me-screenshot {
+      margin: 1rem 0 0.5rem;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 3px solid #3a8a5e;
+      box-shadow: 0 5px 0 #1b4a2a, 0 8px 15px rgba(0,0,0,0.4);
+      cursor: pointer;
+      transition: transform 0.2s, border-color 0.2s;
+      background: #1e3a24;
+      position: relative;
+      aspect-ratio: 16/9;
+    }
+
+    .me-screenshot:hover {
+      transform: scale(1.01);
+      border-color: #5faf7f;
+    }
+
+    .me-screenshot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: opacity 0.5s ease;
+    }
+
+    .screenshot-indicator {
+      position: absolute;
+      bottom: 8px;
+      right: 12px;
+      background: rgba(0,0,0,0.5);
+      color: #b8f0c8;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      backdrop-filter: blur(4px);
+      border: 1px solid #3a8a5e;
+    }
+
     .me-footer {
       margin-top: 15px;
-      font-size: 0.75rem;
+      font-size: 0.8rem;
       color: #8fc09f;
     }
 
-    /* ===== Вкладка Socials ===== */
+    /* ===== Socials ===== */
     .socials-list {
       display: flex;
       flex-direction: column;
-      gap: 0.9rem;
+      gap: 1rem;
     }
 
     .social-item {
@@ -184,31 +212,30 @@
       padding: 0.7rem 1rem;
       display: flex;
       align-items: center;
-      box-shadow: 0 4px 0 #0f1f0f, 0 2px 8px black;
+      box-shadow: 0 4px 0 #0f1f0f, 0 3px 8px black;
       border: 1px solid #3f7a4f;
-      transition: all 0.1s ease;
+      transition: all 0.1s;
     }
 
     .social-item:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 0 #0f1f0f, 0 6px 12px black;
+      box-shadow: 0 6px 0 #0f1f0f, 0 5px 12px black;
       border-color: #5faf7f;
     }
 
     .social-icon {
-      width: 46px;
-      height: 46px;
+      width: 50px;
+      height: 50px;
       background: #1a3a24;
       border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-right: 0.9rem;
-      font-size: 1.8rem;
+      margin-right: 1rem;
+      font-size: 2rem;
       color: #9fdfaf;
       border: 1px solid #4f9e6f;
       box-shadow: inset 0 1px 3px #0e1e0e, 0 3px 0 #0e1e0e;
-      transition: 0.1s;
     }
 
     .social-item:hover .social-icon {
@@ -222,15 +249,14 @@
     }
 
     .social-title {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       font-weight: 800;
       color: #e6f7e6;
       text-transform: uppercase;
-      letter-spacing: 0.3px;
     }
 
     .social-sub {
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       color: #b1dbb1;
       display: flex;
       align-items: center;
@@ -243,11 +269,11 @@
       border: none;
       color: white;
       font-weight: bold;
-      padding: 0.4rem 1rem;
+      padding: 0.4rem 1.2rem;
       border-radius: 30px;
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       cursor: pointer;
-      box-shadow: 0 3px 0 #1a3a1a;
+      box-shadow: 0 4px 0 #1a3a1a;
       transition: 0.08s linear;
       text-decoration: none;
       display: inline-block;
@@ -263,29 +289,148 @@
     .btn-green:hover {
       background: #3f8f4f;
       transform: translateY(-1px);
+      box-shadow: 0 5px 0 #1a3a1a;
+    }
+
+    /* ===== Gallery вкладка (только сетка) ===== */
+    .gallery-section {
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title {
+      color: #b8f0c8;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      border-left: 4px solid #3a9e6a;
+      padding-left: 0.8rem;
+    }
+
+    /* Сетка галереи */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: 12px;
+    }
+
+    .gallery-item {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 2px solid #3a6e3a;
+      box-shadow: 0 3px 0 #142314;
+      cursor: pointer;
+      background: #1e3a24;
+      transition: transform 0.1s;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.02);
+      border-color: #5faf7f;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      display: block;
+    }
+
+    .gallery-caption {
+      padding: 5px 2px;
+      font-size: 0.75rem;
+      text-align: center;
+      color: #c0e0c0;
+      background: #1f3b26;
+      text-transform: capitalize;
+    }
+
+    /* Модальное окно */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(5, 16, 8, 0.95);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-content {
+      max-width: 90vw;
+      max-height: 90vh;
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 0 30px black;
+      border: 3px solid #3a8a5e;
+    }
+
+    .modal-content img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: contain;
+      max-height: 80vh;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: #1a2e1f;
+      color: white;
+      border: 2px solid #3a8a5e;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      cursor: pointer;
+      z-index: 10;
+    }
+
+    .modal-close:hover {
+      background: #2e6e3e;
+    }
+
+    .modal-download {
+      position: absolute;
+      bottom: 15px;
+      right: 15px;
+      background: #2e6e3e;
+      color: white;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 30px;
+      font-weight: bold;
+      cursor: pointer;
       box-shadow: 0 4px 0 #1a3a1a;
+      border: 1px solid #5fa86f;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      z-index: 10;
+      text-decoration: none;
     }
 
-    .btn-green:active {
-      transform: translateY(2px);
-      box-shadow: 0 1px 0 #1a3a1a;
-    }
-
-    .btn-green.copy-btn {
-      background: #1f4f2a;
-      box-shadow: 0 3px 0 #0f2a14;
-    }
-
-    .btn-green.copy-btn:hover {
-      background: #2f6f3a;
+    .modal-download:hover {
+      background: #3f8f4f;
     }
 
     /* Футер */
     .footer-note {
-      margin-top: 1.2rem;
+      margin-top: 1.5rem;
       text-align: center;
       color: #7fa37f;
-      font-size: 0.7rem;
+      font-size: 0.75rem;
       border-top: 1px dashed #3f7a4f;
       padding-top: 0.8rem;
     }
@@ -293,16 +438,16 @@
     /* Toast */
     .toast-msg {
       position: fixed;
-      bottom: 30px;
+      bottom: 25px;
       left: 50%;
       transform: translateX(-50%);
       background: #1a3a1a;
       color: #d0f0d0;
       padding: 0.5rem 1.5rem;
-      border-radius: 40px;
+      border-radius: 30px;
       font-weight: bold;
       border: 1px solid #3faf6f;
-      box-shadow: 0 5px 0 #0e1e0e;
+      box-shadow: 0 4px 0 #0e1e0e;
       opacity: 0;
       transition: opacity 0.2s;
       pointer-events: none;
@@ -315,26 +460,18 @@
       opacity: 1;
     }
 
-    /* Адаптивность для маленьких экранов */
-    @media (max-width: 600px) {
-      body { padding: 20px; }
-      .tab-btn { padding: 0.5rem 1rem; font-size: 1rem; }
-      .social-title { font-size: 1rem; }
-      .social-icon { width: 40px; height: 40px; font-size: 1.5rem; }
-      h1 { font-size: 2rem; }
-      .bio { font-size: 0.85rem; }
-      .btn-green { padding: 0.3rem 0.8rem; font-size: 0.7rem; }
-    }
-
-    @media (max-width: 450px) {
+    @media (max-width: 550px) {
       body { padding: 12px; }
+      .tab-btn { padding: 0.5rem 0.8rem; font-size: 1rem; }
+      .social-title { font-size: 1.1rem; }
+      h1 { font-size: 2.2rem; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
 <body>
 
 <div class="fullscreen-card">
-  <!-- Вкладки -->
   <div class="tabs-header">
     <button class="tab-btn active" data-tab="me">
       <i class="fas fa-user-astronaut"></i> Me
@@ -342,30 +479,39 @@
     <button class="tab-btn" data-tab="socials">
       <i class="fas fa-share-alt"></i> Socials
     </button>
+    <button class="tab-btn" data-tab="gallery">
+      <i class="fas fa-images"></i> Gallery
+    </button>
   </div>
 
-  <!-- Контент -->
   <div class="tab-content">
-    <!-- Вкладка Me -->
+    <!-- Me -->
     <div id="tab-me" class="tab-pane active">
       <div class="profile-me">
         <div class="avatar-me">
-          <img src="https://media.discordapp.net/attachments/1412412538532003882/1492146317261013042/image.png?ex=69dee24c&is=69dd90cc&hm=a1580177d86d99ea122a8a6d8caafa6b02635dc6f58098a72c66f2c263d6626e&=&format=webp&quality=lossless&width=1160&height=1058" alt="Teast">
+          <img src="images/avatar.png" alt="Teast">
         </div>
         <h1>Teast</h1>
         <div class="bio">
           <i class="fas fa-comment-dots"></i> Hello! I am Teast! Welcome to my site, there are some links to my socials.
         </div>
+        <!-- Большой переключающийся скриншот -->
+        <div class="me-screenshot" id="meScreenshot">
+          <img id="meScreenshotImg" src="images/screenshots/screenshot1.png" alt="Screenshot">
+          <div class="screenshot-indicator" id="screenshotIndicator">1/2</div>
+        </div>
         <div class="me-footer">
           <i class="fas fa-leaf"></i> Ready for adventures · 2026
         </div>
       </div>
+      <div class="footer-note">
+        <i class="fas fa-crown" style="color:#7fbf7f;"></i> Teast · GitHub Pages
+      </div>
     </div>
 
-    <!-- Вкладка Socials -->
+    <!-- Socials -->
     <div id="tab-socials" class="tab-pane">
       <div class="socials-list">
-        <!-- Roblox профиль -->
         <div class="social-item">
           <div class="social-icon"><i class="fab fa-roblox"></i></div>
           <div class="social-info">
@@ -378,7 +524,6 @@
             </a>
           </div>
         </div>
-        <!-- Discord -->
         <div class="social-item">
           <div class="social-icon"><i class="fab fa-discord"></i></div>
           <div class="social-info">
@@ -394,7 +539,6 @@
             </button>
           </div>
         </div>
-        <!-- Roblox Group -->
         <div class="social-item">
           <div class="social-icon"><i class="fas fa-users"></i></div>
           <div class="social-info">
@@ -412,6 +556,26 @@
         <i class="fas fa-crown" style="color:#7fbf7f;"></i> Teast · GitHub Pages
       </div>
     </div>
+
+    <!-- Gallery (только сетка) -->
+    <div id="tab-gallery" class="tab-pane">
+      <div class="gallery-section">
+        <div class="section-title"><i class="fas fa-camera-retro"></i> All Images</div>
+        <div class="gallery-grid" id="galleryGrid"></div>
+      </div>
+      <div class="footer-note">
+        <i class="fas fa-crown" style="color:#7fbf7f;"></i> Teast · GitHub Pages
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Модальное окно -->
+<div class="modal" id="imageModal">
+  <div class="modal-content">
+    <span class="modal-close" onclick="closeModal()">&times;</span>
+    <img id="modalImage" src="" alt="">
+    <a id="modalDownload" class="modal-download" download href="#"><i class="fas fa-download"></i> Скачать</a>
   </div>
 </div>
 
@@ -422,35 +586,114 @@
 
 <script>
   (function() {
-    // Переключение вкладок
+    // ---------- НАСТРОЙКИ ----------
+    const screenshots = [
+      'images/screenshots/screenshot1.png',
+      'images/screenshots/screenshot2.png'
+    ];
+    
+    // Галерея — все файлы из папки images/gallery/
+    const galleryImages = [
+      'roblox.png',
+      'avatar2.png',
+      'cool_moment.png',
+      // Добавляйте свои файлы сюда
+    ];
+
+    // ---------- ПЕРЕКЛЮЧЕНИЕ БОЛЬШОГО СКРИНШОТА В ME ----------
+    let currentScreenshotIndex = 0;
+    const meScreenshotImg = document.getElementById('meScreenshotImg');
+    const screenshotIndicator = document.getElementById('screenshotIndicator');
+    const meScreenshotDiv = document.getElementById('meScreenshot');
+
+    function updateScreenshot() {
+      meScreenshotImg.style.opacity = '0.6';
+      setTimeout(() => {
+        meScreenshotImg.src = screenshots[currentScreenshotIndex];
+        meScreenshotImg.style.opacity = '1';
+        screenshotIndicator.textContent = `${currentScreenshotIndex+1}/${screenshots.length}`;
+      }, 200);
+    }
+
+    // Переключение каждые 5 секунд
+    setInterval(() => {
+      currentScreenshotIndex = (currentScreenshotIndex + 1) % screenshots.length;
+      updateScreenshot();
+    }, 5000);
+
+    // Клик по скриншоту открывает модалку с текущим изображением
+    meScreenshotDiv.addEventListener('click', () => {
+      openModal(screenshots[currentScreenshotIndex], `Screenshot ${currentScreenshotIndex+1}`);
+    });
+
+    // ---------- ЗАГРУЗКА ГАЛЕРЕИ ----------
+    const galleryGrid = document.getElementById('galleryGrid');
+    galleryImages.forEach(filename => {
+      const nameWithoutExt = filename.replace(/\.[^/.]+$/, "");
+      const caption = nameWithoutExt.replace(/_/g, ' ');
+      const src = `images/gallery/${filename}`;
+      const div = document.createElement('div');
+      div.className = 'gallery-item';
+      div.innerHTML = `
+        <img src="${src}" alt="${caption}" loading="lazy">
+        <div class="gallery-caption">${caption}</div>
+      `;
+      div.addEventListener('click', () => openModal(src, caption));
+      galleryGrid.appendChild(div);
+    });
+
+    // ---------- МОДАЛЬНОЕ ОКНО ----------
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+    const modalDownload = document.getElementById('modalDownload');
+
+    window.openModal = function(src, caption) {
+      modalImg.src = src;
+      modalImg.alt = caption;
+      modalDownload.href = src;
+      modalDownload.setAttribute('download', caption.replace(/\s+/g, '_') + '.png');
+      modal.classList.add('active');
+    };
+
+    window.closeModal = function() {
+      modal.classList.remove('active');
+    };
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('active')) {
+        closeModal();
+      }
+    });
+
+    // ---------- ПЕРЕКЛЮЧЕНИЕ ВКЛАДОК ----------
     const tabs = document.querySelectorAll('.tab-btn');
     const panes = {
       me: document.getElementById('tab-me'),
-      socials: document.getElementById('tab-socials')
+      socials: document.getElementById('tab-socials'),
+      gallery: document.getElementById('tab-gallery')
     };
 
     function switchTab(tabId) {
-      tabs.forEach(btn => {
-        btn.classList.toggle('active', btn.dataset.tab === tabId);
-      });
+      tabs.forEach(btn => btn.classList.toggle('active', btn.dataset.tab === tabId));
       for (let id in panes) {
         panes[id].classList.toggle('active', id === tabId);
       }
     }
 
     tabs.forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        const tabId = btn.dataset.tab;
-        if (tabId) switchTab(tabId);
+      btn.addEventListener('click', () => {
+        if (btn.dataset.tab) switchTab(btn.dataset.tab);
       });
     });
 
-    // Копирование Discord ника
+    // ---------- КОПИРОВАНИЕ DISCORD ----------
     window.copyDiscord = function() {
       const nick = "luciendre";
-      navigator.clipboard.writeText(nick).then(() => {
-        showToast();
-      }).catch(() => {
+      navigator.clipboard.writeText(nick).then(showToast).catch(() => {
         const ta = document.createElement('textarea');
         ta.value = nick;
         document.body.appendChild(ta);
@@ -464,15 +707,14 @@
     function showToast() {
       const toast = document.getElementById('liveToast');
       toast.classList.add('show');
-      setTimeout(() => toast.classList.remove('show'), 2000);
+      setTimeout(() => toast.classList.remove('show'), 1800);
     }
 
-    // Анимация аватарки
     const avatar = document.querySelector('.avatar-me');
     if(avatar) {
       avatar.addEventListener('click', () => {
-        avatar.style.transform = 'scale(0.97)';
-        setTimeout(() => avatar.style.transform = '', 100);
+        avatar.style.transform = 'scale(0.96)';
+        setTimeout(() => avatar.style.transform = '', 80);
       });
     }
   })();
