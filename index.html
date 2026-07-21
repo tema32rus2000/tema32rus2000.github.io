@@ -2,9 +2,8 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-  <title>Teast · Me & Gallery</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Красивый Крабс Бургер</title>
   <style>
     * {
       margin: 0;
@@ -13,711 +12,1062 @@
     }
 
     body {
-      background: #0a1a0e;
+      font-family: 'Comic Sans MS', 'Chalkboard SE', 'Segoe UI', cursive, sans-serif;
+      background: #b3e1f0;
+      background-image: url('https://static.vecteezy.com/system/resources/thumbnails/026/812/783/small_2x/background-with-flowers-and-bubbles-vector.jpg');
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
       min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
-      padding: 25px;
-      animation: fadeIn 0.4s ease;
+      padding: 12px 0 0 0;
     }
 
-    @keyframes fadeIn {
-      0% { opacity: 0; }
-      100% { opacity: 1; }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
     }
 
-    .fullscreen-card {
-      width: 100%;
-      max-width: 800px;
-      background: #1a2e1f;
-      border-radius: 20px;
-      box-shadow: 0 15px 25px -5px rgba(0, 0, 0, 0.7), 0 0 0 1px #3b6e3b inset;
-      overflow: hidden;
-      animation: slideUp 0.4s cubic-bezier(0.2, 0.9, 0.4, 1);
-      border: 1px solid #3a6e3a;
-    }
-
-    @keyframes slideUp {
-      0% { opacity: 0; transform: translateY(20px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Шапка с вкладками */
-    .tabs-header {
-      display: flex;
-      background: #0f1f12;
-      border-bottom: 2px solid #2e7d5e;
-      padding: 0 8px;
-    }
-
-    .tab-btn {
-      padding: 0.6rem 1.2rem;
-      font-size: 1.2rem;
-      font-weight: 700;
-      background: transparent;
-      border: none;
-      color: #b0d9b0;
-      cursor: pointer;
-      transition: all 0.15s;
-      text-transform: uppercase;
-      font-family: 'Arial Black', 'Impact', sans-serif;
-      border-radius: 12px 12px 0 0;
-      margin-right: 4px;
-    }
-
-    .tab-btn i {
-      margin-right: 6px;
-      font-size: 1.1rem;
-    }
-
-    .tab-btn:hover {
-      background: #2a4a2f;
-      color: #e0ffe0;
-    }
-
-    .tab-btn.active {
-      background: #1a2e1f;
-      color: #b3f0b3;
-      box-shadow: 0 -2px 0 #2e7d5e inset, 0 1px 6px rgba(0,0,0,0.3);
-      border-bottom: 2px solid #1a2e1f;
-    }
-
-    /* Контент */
-    .tab-content {
-      padding: 1.2rem 1.5rem 1.5rem;
-      background: #1a2e1f;
-    }
-
-    .tab-pane {
-      display: none;
-      animation: fadePane 0.15s ease;
-    }
-
-    .tab-pane.active {
-      display: block;
-    }
-
-    @keyframes fadePane {
-      0% { opacity: 0.4; transform: translateY(3px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ===== Вкладка Me ===== */
-    .profile-me {
-      text-align: center;
-    }
-
-    .avatar-me {
-      width: 100px;
-      height: 100px;
-      margin: 0 auto 0.8rem;
-      border-radius: 20px;
-      border: 3px solid #3a8a5e;
-      box-shadow: 0 5px 0 #1b4a2a, 0 8px 15px rgba(0,0,0,0.4);
-      overflow: hidden;
-      background: #1e402e;
-    }
-
-    .avatar-me img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    h1 {
-      font-size: 2.6rem;
-      font-weight: 900;
-      text-transform: uppercase;
-      font-family: 'Arial Black', 'Impact', sans-serif;
-      color: #b8f0c8;
-      text-shadow: 3px 3px 0 #1e4a2e, 2px 2px 0 #00000040;
-      margin-bottom: 0.3rem;
-    }
-
-    .bio {
-      background: #1f3b26;
-      padding: 0.7rem 1rem;
-      border-radius: 14px;
-      border-left: 6px solid #3a9e6a;
-      font-size: 1rem;
-      color: #daf0da;
-      margin: 1rem 0 1.2rem;
-      box-shadow: inset 0 1px 4px #0c1e0c, 0 3px 0 #142314;
-      text-align: left;
-    }
-
-    .bio i {
-      color: #7fcf9f;
-      margin-right: 6px;
-    }
-
-    /* Большой скриншот в Me */
-    .me-screenshot {
-      margin: 1rem 0 0.5rem;
-      border-radius: 16px;
-      overflow: hidden;
-      border: 3px solid #3a8a5e;
-      box-shadow: 0 5px 0 #1b4a2a, 0 8px 15px rgba(0,0,0,0.4);
-      cursor: pointer;
-      transition: transform 0.2s, border-color 0.2s;
-      background: #1e3a24;
-      position: relative;
-      aspect-ratio: 16/9;
-    }
-
-    .me-screenshot:hover {
-      transform: scale(1.01);
-      border-color: #5faf7f;
-    }
-
-    .me-screenshot img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: opacity 0.5s ease;
-    }
-
-    .screenshot-indicator {
-      position: absolute;
-      bottom: 8px;
-      right: 12px;
-      background: rgba(0,0,0,0.5);
-      color: #b8f0c8;
-      padding: 4px 10px;
-      border-radius: 20px;
-      font-size: 0.7rem;
+    /* Шапка */
+    .header {
+      background: rgba(255, 235, 150, 0.85);
       backdrop-filter: blur(4px);
-      border: 1px solid #3a8a5e;
+      border-radius: 0 0 60px 60px;
+      padding: 14px 0 18px;
+      border: 6px solid #f7c56c;
+      border-top: none;
+      box-shadow: 0 10px 0 #d99d3a, 0 12px 30px rgba(0,30,40,0.3);
+      margin-bottom: 20px;
     }
 
-    .me-footer {
-      margin-top: 15px;
-      font-size: 0.8rem;
-      color: #8fc09f;
-    }
-
-    /* ===== Socials ===== */
-    .socials-list {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .social-item {
-      background: #233e29;
-      border-radius: 14px;
-      padding: 0.7rem 1rem;
+    .header-content {
       display: flex;
       align-items: center;
-      box-shadow: 0 4px 0 #0f1f0f, 0 3px 8px black;
-      border: 1px solid #3f7a4f;
-      transition: all 0.1s;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
     }
 
-    .social-item:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 0 #0f1f0f, 0 5px 12px black;
-      border-color: #5faf7f;
-    }
-
-    .social-icon {
-      width: 50px;
-      height: 50px;
-      background: #1a3a24;
-      border-radius: 12px;
+    .logo {
       display: flex;
       align-items: center;
-      justify-content: center;
-      margin-right: 1rem;
-      font-size: 2rem;
-      color: #9fdfaf;
-      border: 1px solid #4f9e6f;
-      box-shadow: inset 0 1px 3px #0e1e0e, 0 3px 0 #0e1e0e;
+      gap: 12px;
+      background: rgba(255, 255, 200, 0.6);
+      padding: 6px 20px 6px 12px;
+      border-radius: 80px;
+      border: 4px dashed #f7a54b;
     }
 
-    .social-item:hover .social-icon {
-      background: #2c5538;
-      color: #c0f0c0;
-      border-color: #6fbf8f;
+    .logo-icon {
+      font-size: 3rem;
+      line-height: 1;
+      filter: drop-shadow(0 4px 4px rgba(0,0,0,0.1));
     }
 
-    .social-info {
-      flex: 1;
+    .logo h1 {
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: #2f5a6b;
+      text-shadow: 4px 4px 0 #f9d48b, 0 0 20px #ffe3a0;
+      letter-spacing: 2px;
     }
 
-    .social-title {
-      font-size: 1.3rem;
+    .nav a {
+      color: #1f4a5a;
+      text-decoration: none;
+      margin-left: 18px;
       font-weight: 800;
-      color: #e6f7e6;
-      text-transform: uppercase;
+      font-size: 1.2rem;
+      background: rgba(255, 248, 200, 0.8);
+      padding: 6px 18px;
+      border-radius: 40px;
+      border: 4px solid #f9b84a;
+      transition: 0.15s;
+      display: inline-block;
+      cursor: pointer;
     }
 
-    .social-sub {
-      font-size: 0.85rem;
-      color: #b1dbb1;
+    .nav a:hover {
+      background: #feda7a;
+      border-color: #d68d2c;
+      transform: scale(1.03) rotate(-2deg);
+    }
+
+    .nav a.active-tab {
+      background: #feda7a;
+      border-color: #d68d2c;
+      box-shadow: 0 0 0 3px #2f5a6b;
+    }
+
+    .nav a:first-child { margin-left: 0; }
+
+    /* HERO */
+    .hero {
+      background: rgba(255, 237, 180, 0.7);
+      backdrop-filter: blur(6px);
+      padding: 32px 30px 30px;
+      border-radius: 120px 30px 120px 30px;
+      margin-bottom: 28px;
+      border: 8px solid #fbcb7b;
+      box-shadow: 0 14px 0 #d49d5a, 0 20px 40px rgba(0,30,40,0.3);
+    }
+
+    .hero-grid {
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 30px;
       flex-wrap: wrap;
     }
 
-    .social-action .btn-green {
-      background: #2e6e3e;
-      border: none;
-      color: white;
-      font-weight: bold;
-      padding: 0.4rem 1.2rem;
-      border-radius: 30px;
-      font-size: 0.85rem;
-      cursor: pointer;
-      box-shadow: 0 4px 0 #1a3a1a;
-      transition: 0.08s linear;
-      text-decoration: none;
+    .hero-text {
+      flex: 1 1 280px;
+    }
+
+    .hero-text h2 {
+      font-size: 3.2rem;
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 12px;
+      text-shadow: 6px 6px 0 #ffd58c, 0 0 30px #ffeab3;
+      color: #1f495a;
+    }
+
+    .rainbow-text {
       display: inline-block;
-      border: 1px solid #5fa86f;
-      text-transform: uppercase;
-      white-space: nowrap;
+      font-size: 3.2rem;
+      font-weight: 900;
+      line-height: 1.2;
+      text-shadow: 4px 4px 0 rgba(0,0,0,0.08);
+    }
+    .rainbow-text .c1 { color: #d42f2f; }
+    .rainbow-text .c2 { color: #8b3fbf; }
+    .rainbow-text .c3 { color: #2b9e3b; }
+    .rainbow-text .c4 { color: #e07c1f; }
+    .rainbow-text .c5 { color: #d45a8a; }
+    .rainbow-text .c6 { color: #2d7bb6; }
+
+    .hero-text p {
+      font-size: 1.3rem;
+      color: #13313d;
+      background: rgba(255, 255, 200, 0.5);
+      padding: 10px 22px;
+      border-radius: 80px;
+      display: inline-block;
+      border: 4px dotted #e7a557;
+      backdrop-filter: blur(2px);
     }
 
-    .btn-green i {
-      margin-right: 5px;
-    }
-
-    .btn-green:hover {
-      background: #3f8f4f;
-      transform: translateY(-1px);
-      box-shadow: 0 5px 0 #1a3a1a;
-    }
-
-    /* ===== Gallery вкладка (только сетка) ===== */
-    .gallery-section {
-      margin-bottom: 0.5rem;
-    }
-
-    .section-title {
-      color: #b8f0c8;
-      font-size: 1.2rem;
-      font-weight: bold;
-      text-transform: uppercase;
-      margin-bottom: 1rem;
-      border-left: 4px solid #3a9e6a;
-      padding-left: 0.8rem;
-    }
-
-    /* Сетка галереи */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-      gap: 12px;
-    }
-
-    .gallery-item {
-      border-radius: 12px;
-      overflow: hidden;
-      border: 2px solid #3a6e3a;
-      box-shadow: 0 3px 0 #142314;
-      cursor: pointer;
-      background: #1e3a24;
-      transition: transform 0.1s;
-    }
-
-    .gallery-item:hover {
-      transform: scale(1.02);
-      border-color: #5faf7f;
-    }
-
-    .gallery-item img {
-      width: 100%;
-      aspect-ratio: 1/1;
-      object-fit: cover;
-      display: block;
-    }
-
-    .gallery-caption {
-      padding: 5px 2px;
-      font-size: 0.75rem;
+    .hero-image {
+      flex: 1 1 200px;
       text-align: center;
-      color: #c0e0c0;
-      background: #1f3b26;
-      text-transform: capitalize;
+      font-size: 7rem;
+      line-height: 1;
+      filter: drop-shadow(0 10px 12px rgba(0,0,0,0.15));
+      background: rgba(255, 240, 180, 0.3);
+      padding: 20px 10px;
+      border-radius: 120px 30px 120px 30px;
+      border: 6px solid #f9c87a;
+      backdrop-filter: blur(2px);
     }
 
-    /* Модальное окно */
-    .modal {
+    /* Панель выбора цвета */
+    .color-picker-panel {
+      background: rgba(255, 245, 200, 0.7);
+      backdrop-filter: blur(6px);
+      border-radius: 80px 20px 80px 20px;
+      padding: 16px 28px;
+      margin: 20px 0 28px;
+      border: 6px solid #fbc16a;
+      box-shadow: 0 8px 0 #b8863a;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+    }
+
+    .color-picker-panel span {
+      font-weight: 800;
+      font-size: 1.3rem;
+      color: #1e3d47;
+      text-shadow: 2px 2px 0 #fad58c;
+    }
+
+    .color-btn {
+      width: 48px;
+      height: 48px;
+      border-radius: 60px;
+      border: 5px solid #f7e3b0;
+      cursor: pointer;
+      transition: 0.15s;
+      box-shadow: 0 5px 0 #9f7a3a, 0 4px 10px rgba(0,0,0,0.15);
+      display: inline-block;
+    }
+
+    .color-btn:hover {
+      transform: scale(1.1);
+      border-color: white;
+    }
+
+    .color-btn.active {
+      border: 6px solid #fff9e0;
+      box-shadow: 0 0 0 4px #2f5a6b, 0 5px 0 #9f7a3a;
+      transform: scale(1.05);
+    }
+
+    /* Секции */
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #1e4656;
+      text-shadow: 4px 4px 0 #fad58c;
+      background: rgba(255, 245, 200, 0.6);
+      backdrop-filter: blur(4px);
+      padding: 10px 30px 10px 20px;
+      border-radius: 0 80px 0 80px;
+      display: inline-block;
+      border: 6px solid #fabe6a;
+      margin: 30px 0 8px;
+    }
+
+    .section-title small {
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: #1a4150;
+    }
+
+    .divider {
+      width: 120px;
+      height: 8px;
+      background: radial-gradient(circle, #f7c56c, #e59f4a);
+      border-radius: 20px;
+      margin: 6px 0 24px;
+      border: 2px solid #d48d3a;
+    }
+
+    /* Вкладки */
+    .page-section {
       display: none;
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(5, 16, 8, 0.95);
-      backdrop-filter: blur(8px);
-      z-index: 1000;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
+      animation: fadeIn 0.3s ease;
     }
 
-    .modal.active {
-      display: flex;
-    }
-
-    .modal-content {
-      max-width: 90vw;
-      max-height: 90vh;
-      position: relative;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 0 30px black;
-      border: 3px solid #3a8a5e;
-    }
-
-    .modal-content img {
-      width: 100%;
-      height: auto;
+    .page-section.active-page {
       display: block;
-      object-fit: contain;
-      max-height: 80vh;
     }
 
-    .modal-close {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      background: #1a2e1f;
-      color: white;
-      border: 2px solid #3a8a5e;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Карточки */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+      margin: 30px 0 20px;
+    }
+
+    .product-card {
+      background: rgba(255, 245, 210, 0.75);
+      backdrop-filter: blur(6px);
+      border-radius: 80px 20px 80px 20px;
+      padding: 26px 16px 20px;
+      box-shadow: 0 10px 0 #b58544, 0 12px 30px rgba(0,30,30,0.2);
+      border: 6px solid #fccf89;
+      transition: 0.2s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px) rotate(1deg);
+      border-color: #f7b34b;
+      box-shadow: 0 14px 0 #b58544, 0 20px 40px rgba(0,30,30,0.3);
+      background: rgba(255, 248, 215, 0.85);
+    }
+
+    .product-emoji {
+      font-size: 4.5rem;
+      line-height: 1;
+      filter: drop-shadow(2px 8px 6px rgba(0,0,0,0.08));
+      background: rgba(255, 215, 120, 0.2);
+      border-radius: 100px;
+      padding: 10px 20px;
+      margin-bottom: 6px;
+    }
+
+    .product-name {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #1d3b44;
+      margin: 10px 0 2px;
+      text-shadow: 2px 2px 0 #fbcb7b;
+    }
+
+    .product-desc {
+      color: #1f4657;
+      font-size: 1rem;
+      background: rgba(255, 255, 180, 0.3);
+      padding: 4px 14px;
+      border-radius: 40px;
+      margin: 6px 0 10px;
+      font-weight: 600;
+    }
+
+    .product-price {
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: #2f5f3e;
+      background: rgba(255, 225, 130, 0.7);
+      padding: 4px 22px;
+      border-radius: 80px;
+      border: 4px solid #d49d3b;
+      margin: 6px 0 14px;
+    }
+
+    .btn-order {
+      background: #f7c56c;
+      border: 5px solid #dba34b;
+      color: #1d3b42;
+      font-weight: 700;
+      padding: 12px 24px;
+      border-radius: 80px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: 0.15s;
+      width: 100%;
+      max-width: 170px;
+      box-shadow: 0 6px 0 #a07434;
+    }
+
+    .btn-order:hover {
+      background: #fdd68a;
+      border-color: #b97d2e;
+      transform: scale(0.96);
+      box-shadow: 0 3px 0 #a07434;
+    }
+
+    /* Спецпредложение (оставлено только сеты) */
+    .special-box {
+      background: rgba(255, 215, 130, 0.65);
+      backdrop-filter: blur(8px);
+      border-radius: 120px 20px 120px 20px;
+      padding: 28px 32px;
+      margin: 40px 0 30px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      border: 8px solid #fbc16a;
+      box-shadow: 0 12px 0 #b8863a, 0 16px 30px rgba(0,20,20,0.2);
+    }
+
+    .special-box h3 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #1d4150;
+      text-shadow: 3px 3px 0 #ffd58c;
+    }
+
+    .special-box p {
+      font-size: 1.3rem;
+      color: #1e3f47;
+      background: rgba(255, 240, 170, 0.5);
+      padding: 4px 20px;
+      border-radius: 60px;
+    }
+
+    .special-tag {
+      background: #2a5a6b;
+      color: #ffecb3;
+      padding: 12px 30px;
+      border-radius: 80px;
+      font-weight: 800;
+      font-size: 1.4rem;
+      border: 6px solid #fbc56a;
+      box-shadow: 0 6px 0 #15404e;
+    }
+
+    /* Реклама — оставляем только информационные баннеры */
+    .ad-banner {
+      background: rgba(255, 215, 0, 0.25);
+      backdrop-filter: blur(6px);
+      border-radius: 60px 20px 60px 20px;
+      padding: 20px 28px;
+      margin: 24px 0;
+      border: 6px double #f7b84a;
+      box-shadow: 0 6px 0 #b8863a;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .ad-banner .ad-text {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #1f3f4a;
+      text-shadow: 2px 2px 0 #ffd58c;
+    }
+
+    .ad-banner .ad-text span {
+      background: #ffdd77;
+      padding: 2px 16px;
+      border-radius: 40px;
+      border: 4px solid #d68d2c;
+    }
+
+    .ad-banner .ad-emoji {
+      font-size: 3rem;
+      line-height: 1;
+    }
+
+    .ad-small {
+      background: rgba(255, 200, 100, 0.2);
+      backdrop-filter: blur(4px);
+      border-radius: 40px;
+      padding: 12px 24px;
+      border: 4px dashed #f7b84a;
+      text-align: center;
+      margin: 16px 0;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #1e3d47;
+    }
+
+    .ad-small span {
+      background: #ffdd77;
+      padding: 0 12px;
+      border-radius: 20px;
+    }
+
+    /* Фичи */
+    .bikini-features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 16px;
+      background: rgba(245, 230, 170, 0.5);
+      backdrop-filter: blur(6px);
+      padding: 24px 28px;
+      border-radius: 100px 20px 100px 20px;
+      border: 6px solid #fbc16a;
+      margin: 30px 0 10px;
+      box-shadow: 0 8px 0 #b8863a;
+    }
+
+    .feature-item {
       display: flex;
       align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      cursor: pointer;
-      z-index: 10;
+      gap: 12px;
+      background: rgba(255, 248, 200, 0.4);
+      padding: 6px 18px 6px 12px;
+      border-radius: 60px;
+      border: 4px dotted #e7a557;
     }
 
-    .modal-close:hover {
-      background: #2e6e3e;
-    }
-
-    .modal-download {
-      position: absolute;
-      bottom: 15px;
-      right: 15px;
-      background: #2e6e3e;
-      color: white;
-      border: none;
-      padding: 0.6rem 1.2rem;
-      border-radius: 30px;
-      font-weight: bold;
-      cursor: pointer;
-      box-shadow: 0 4px 0 #1a3a1a;
-      border: 1px solid #5fa86f;
-      text-transform: uppercase;
-      font-size: 0.8rem;
-      z-index: 10;
-      text-decoration: none;
-    }
-
-    .modal-download:hover {
-      background: #3f8f4f;
+    .feature-item span:first-child {
+      font-size: 2.6rem;
     }
 
     /* Футер */
-    .footer-note {
-      margin-top: 1.5rem;
-      text-align: center;
-      color: #7fa37f;
-      font-size: 0.75rem;
-      border-top: 1px dashed #3f7a4f;
-      padding-top: 0.8rem;
+    .footer {
+      background: rgba(20, 65, 80, 0.8);
+      backdrop-filter: blur(6px);
+      color: #f4e8c7;
+      padding: 28px 0;
+      margin-top: 50px;
+      border-radius: 80px 80px 0 0;
+      border-top: 10px solid #f7b84a;
+      box-shadow: 0 -8px 0 #b8863a;
     }
 
-    /* Toast */
-    .toast-msg {
+    .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer a {
+      color: #fad68f;
+      text-decoration: none;
+      font-weight: 600;
+      margin: 0 6px 0 0;
+      background: rgba(0,0,0,0.2);
+      padding: 2px 14px;
+      border-radius: 40px;
+      cursor: pointer;
+      transition: 0.15s;
+    }
+
+    .footer a:hover {
+      color: #fff3c9;
+      background: rgba(255, 200, 80, 0.2);
+    }
+
+    /* ===== МОДАЛЬНОЕ ОКНО ===== */
+    .modal-overlay {
+      display: none;
       position: fixed;
-      bottom: 25px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #1a3a1a;
-      color: #d0f0d0;
-      padding: 0.5rem 1.5rem;
-      border-radius: 30px;
-      font-weight: bold;
-      border: 1px solid #3faf6f;
-      box-shadow: 0 4px 0 #0e1e0e;
-      opacity: 0;
-      transition: opacity 0.2s;
-      pointer-events: none;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(4px);
       z-index: 999;
-      text-transform: uppercase;
-      font-size: 0.9rem;
+      align-items: center;
+      justify-content: center;
     }
 
-    .toast-msg.show {
-      opacity: 1;
+    .modal-overlay.show {
+      display: flex;
     }
 
-    @media (max-width: 550px) {
-      body { padding: 12px; }
-      .tab-btn { padding: 0.5rem 0.8rem; font-size: 1rem; }
-      .social-title { font-size: 1.1rem; }
-      h1 { font-size: 2.2rem; }
-      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .modal-box {
+      background: rgba(255, 245, 200, 0.95);
+      backdrop-filter: blur(8px);
+      border-radius: 100px 30px 100px 30px;
+      padding: 40px 48px;
+      max-width: 520px;
+      width: 90%;
+      border: 10px solid #f7c56c;
+      box-shadow: 0 20px 0 #d99d3a, 0 30px 60px rgba(0,0,0,0.4);
+      text-align: center;
+      animation: modalPop 0.3s ease;
+    }
+
+    @keyframes modalPop {
+      0% { transform: scale(0.7); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .modal-box .modal-emoji {
+      font-size: 4rem;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .modal-box h2 {
+      font-size: 2.2rem;
+      color: #1d3b44;
+      text-shadow: 3px 3px 0 #ffd58c;
+      margin-bottom: 12px;
+    }
+
+    .modal-box p {
+      font-size: 1.2rem;
+      color: #1f4657;
+      margin-bottom: 8px;
+      line-height: 1.6;
+    }
+
+    .modal-box .modal-sub {
+      font-size: 1rem;
+      color: #4a2f1f;
+      background: rgba(255, 200, 100, 0.3);
+      padding: 8px 16px;
+      border-radius: 40px;
+      display: inline-block;
+      margin: 12px 0 18px;
+      border: 3px dotted #dba34b;
+    }
+
+    .modal-btn {
+      background: #f5b44a;
+      border: 6px solid #fcda8a;
+      color: #1d3b44;
+      font-weight: 800;
+      padding: 14px 40px;
+      border-radius: 80px;
+      font-size: 1.3rem;
+      cursor: pointer;
+      transition: 0.15s;
+      box-shadow: 0 8px 0 #af7a38;
+    }
+
+    .modal-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 0 #af7a38;
+      background: #fdc15a;
+    }
+
+    .modal-btn:active {
+      transform: translateY(4px);
+      box-shadow: 0 4px 0 #af7a38;
+    }
+
+    @media (max-width: 700px) {
+      .header-content {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+      }
+      .nav a {
+        margin: 0 6px 8px 0;
+        font-size: 1rem;
+      }
+      .hero-text h2 {
+        font-size: 2.2rem;
+      }
+      .rainbow-text {
+        font-size: 2.2rem;
+      }
+      .hero-image {
+        font-size: 4.5rem;
+      }
+      .special-box {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+      }
+      .bikini-features {
+        flex-direction: column;
+        align-items: center;
+      }
+      .color-picker-panel {
+        padding: 12px 16px;
+        gap: 12px;
+      }
+      .color-btn {
+        width: 40px;
+        height: 40px;
+      }
+      .ad-banner {
+        flex-direction: column;
+        text-align: center;
+      }
+      .modal-box {
+        padding: 30px 20px;
+      }
+      .modal-box h2 {
+        font-size: 1.8rem;
+      }
     }
   </style>
 </head>
 <body>
 
-<div class="fullscreen-card">
-  <div class="tabs-header">
-    <button class="tab-btn active" data-tab="me">
-      <i class="fas fa-user-astronaut"></i> Me
-    </button>
-    <button class="tab-btn" data-tab="socials">
-      <i class="fas fa-share-alt"></i> Socials
-    </button>
-    <button class="tab-btn" data-tab="gallery">
-      <i class="fas fa-images"></i> Gallery
-    </button>
+  <!-- ШАПКА -->
+  <header class="header">
+    <div class="container header-content">
+      <div class="logo">
+        <span class="logo-icon">🍔</span>
+        <h1>Красивый Крабс Бургер</h1>
+      </div>
+      <div class="nav" id="tabNav">
+        <a class="active-tab" data-tab="menu">🍔 Меню</a>
+        <a data-tab="colors">🌈 Цвета</a>
+        <a data-tab="delivery">🛵 Доставка</a>
+        <a data-tab="contacts">⭐ Контакты</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO (кнопка "Выбрать цвет" УБРАНА) -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-text">
+        <h2>
+          <span class="rainbow-text">
+            <span class="c1">К</span><span class="c2">р</span><span class="c3">а</span><span class="c4">с</span><span class="c5">и</span><span class="c6">в</span><span class="c1">ы</span><span class="c2">е</span>
+            <span class="c3">к</span><span class="c4">о</span><span class="c5">т</span><span class="c6">л</span><span class="c1">е</span><span class="c2">т</span><span class="c3">к</span><span class="c4">и</span>
+          </span>
+        </h2>
+        <p>🍍 Только цвета! Никаких вкусов — чистая красота!</p>
+        <!-- Кнопка УБРАНА -->
+      </div>
+      <div class="hero-image">
+        🍔🌈
+      </div>
+    </div>
+  </section>
+
+  <!-- Панель выбора цвета -->
+  <div class="container">
+    <div class="color-picker-panel">
+      <span>🎨 Выбери цвет котлетки:</span>
+      <button class="color-btn active" style="background: #d42f2f;" data-color="c1" title="Красный"></button>
+      <button class="color-btn" style="background: #8b3fbf;" data-color="c2" title="Фиолетовый"></button>
+      <button class="color-btn" style="background: #2b9e3b;" data-color="c3" title="Зелёный"></button>
+      <button class="color-btn" style="background: #e07c1f;" data-color="c4" title="Оранжевый"></button>
+      <button class="color-btn" style="background: #d45a8a;" data-color="c5" title="Розово-фиолетовый"></button>
+      <button class="color-btn" style="background: #2d7bb6;" data-color="c6" title="Синий"></button>
+    </div>
   </div>
 
-  <div class="tab-content">
-    <!-- Me -->
-    <div id="tab-me" class="tab-pane active">
-      <div class="profile-me">
-        <div class="avatar-me">
-          <img src="images/avatar.png" alt="Teast">
+  <!-- ОСНОВНОЙ КОНТЕНТ -->
+  <main class="container">
+
+    <!-- ===== МЕНЮ ===== -->
+    <div id="page-menu" class="page-section active-page">
+      <div class="section-title">
+        🌈 Наши цветные котлетки <small>— выбирай свой цвет!</small>
+      </div>
+      <div class="divider"></div>
+
+      <div class="ad-banner">
+        <div class="ad-text">🔥 <span>НОВИНКА!</span> Котлетка-хамелеон — меняет цвет каждый час!</div>
+        <div class="ad-emoji">🦎🍔</div>
+      </div>
+
+      <div class="card-grid">
+        <div class="product-card">
+          <div class="product-emoji">🔴</div>
+          <div class="product-name">Красная</div>
+          <div class="product-desc">🔥 Яркая и сочная</div>
+          <div class="product-price">🍍 390 ₽</div>
+          <button class="btn-order" data-item="Красная котлетка">Заказать</button>
         </div>
-        <h1>Teast</h1>
-        <div class="bio">
-          <i class="fas fa-comment-dots"></i> Hello! I am Teast! Welcome to my site, there are some links to my socials.
+        <div class="product-card">
+          <div class="product-emoji">🟣</div>
+          <div class="product-name">Фиолетовая</div>
+          <div class="product-desc">💜 Загадочная и нежная</div>
+          <div class="product-price">🍍 420 ₽</div>
+          <button class="btn-order" data-item="Фиолетовая котлетка">Заказать</button>
         </div>
-        <!-- Большой переключающийся скриншот -->
-        <div class="me-screenshot" id="meScreenshot">
-          <img id="meScreenshotImg" src="images/screenshots/screenshot1.png" alt="Screenshot">
-          <div class="screenshot-indicator" id="screenshotIndicator">1/2</div>
+        <div class="product-card">
+          <div class="product-emoji">🟢</div>
+          <div class="product-name">Зелёная</div>
+          <div class="product-desc">🌿 Свежая и хрустящая</div>
+          <div class="product-price">🍍 410 ₽</div>
+          <button class="btn-order" data-item="Зелёная котлетка">Заказать</button>
         </div>
-        <div class="me-footer">
-          <i class="fas fa-leaf"></i> Ready for adventures · 2026
+        <div class="product-card">
+          <div class="product-emoji">🟠</div>
+          <div class="product-name">Оранжевая</div>
+          <div class="product-desc">🧡 Солнечная и сладкая</div>
+          <div class="product-price">🍍 400 ₽</div>
+          <button class="btn-order" data-item="Оранжевая котлетка">Заказать</button>
+        </div>
+        <div class="product-card">
+          <div class="product-emoji">🩷</div>
+          <div class="product-name">Розово-фиолетовая</div>
+          <div class="product-desc">💗 Мечтательная и необычная</div>
+          <div class="product-price">🍍 450 ₽</div>
+          <button class="btn-order" data-item="Розово-фиолетовая котлетка">Заказать</button>
+        </div>
+        <div class="product-card">
+          <div class="product-emoji">🔵</div>
+          <div class="product-name">Синяя</div>
+          <div class="product-desc">💙 Океанская свежесть</div>
+          <div class="product-price">🍍 430 ₽</div>
+          <button class="btn-order" data-item="Синяя котлетка">Заказать</button>
         </div>
       </div>
-      <div class="footer-note">
-        <i class="fas fa-crown" style="color:#7fbf7f;"></i> Teast · GitHub Pages
+
+      <!-- АКЦИЯ УБРАНА -->
+
+      <div class="special-box">
+        <div>
+          <h3>🌈 Сет «Радуга»</h3>
+          <p>Все 6 цветных котлеток + напиток + картошка фри</p>
+        </div>
+        <div>
+          <span class="special-tag">🌟 1990 ₽</span>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin: 10px 0 20px;">
+        <button class="btn-order" data-item="Сет «Радуга»" style="max-width: 280px; padding: 16px 40px; font-size: 1.3rem;">🍽️ Заказать сет «Радуга»</button>
+      </div>
+
+      <div class="ad-banner" style="border-color: #ff6b6b; border-style: solid;">
+        <div class="ad-text">💥 <span>СУПЕРПРЕДЛОЖЕНИЕ!</span> Купи 2 — получи 3-ю в <span>ПОЛОВИНУ ЦЕНЫ!</span></div>
+        <div class="ad-emoji">🔥🍔🔥</div>
       </div>
     </div>
 
-    <!-- Socials -->
-    <div id="tab-socials" class="tab-pane">
-      <div class="socials-list">
-        <div class="social-item">
-          <div class="social-icon"><i class="fab fa-roblox"></i></div>
-          <div class="social-info">
-            <div class="social-title">Roblox</div>
-            <div class="social-sub">@Teast · профиль</div>
-          </div>
-          <div class="social-action">
-            <a href="https://www.roblox.com/users/1340721796/profile" target="_blank" rel="noopener" class="btn-green">
-              <i class="fas fa-external-link-alt"></i> Открыть
-            </a>
-          </div>
+    <!-- ===== ЦВЕТА ===== -->
+    <div id="page-colors" class="page-section">
+      <div class="section-title">
+        🎨 Все цвета радуги <small>— выбирай свой</small>
+      </div>
+      <div class="divider"></div>
+
+      <div class="ad-banner">
+        <div class="ad-text">🌈 <span>НОВАЯ КОЛЛЕКЦИЯ!</span> Котлетки с эффектом металлик и глиттер!</div>
+        <div class="ad-emoji">✨🍔</div>
+      </div>
+
+      <div class="card-grid">
+        <div class="product-card" style="border-color: #d42f2f;">
+          <div class="product-emoji">🔴</div>
+          <div class="product-name" style="color: #d42f2f;">Красный</div>
+          <div class="product-desc">Код: #FF2D2D</div>
+          <div class="product-price">🔥 Хит</div>
+          <button class="btn-order" data-item="Красный цвет">Выбрать</button>
         </div>
-        <div class="social-item">
-          <div class="social-icon"><i class="fab fa-discord"></i></div>
-          <div class="social-info">
-            <div class="social-title">Discord</div>
-            <div class="social-sub">
-              <span>luciendre</span> 
-              <span style="opacity:0.8;">· ID: 1392202165606420744</span>
-            </div>
-          </div>
-          <div class="social-action">
-            <button class="btn-green copy-btn" onclick="copyDiscord()">
-              <i class="far fa-copy"></i> Копировать
-            </button>
-          </div>
+        <div class="product-card" style="border-color: #8b3fbf;">
+          <div class="product-emoji">🟣</div>
+          <div class="product-name" style="color: #8b3fbf;">Фиолетовый</div>
+          <div class="product-desc">Код: #8B3FBF</div>
+          <div class="product-price">💜 Топ</div>
+          <button class="btn-order" data-item="Фиолетовый цвет">Выбрать</button>
         </div>
-        <div class="social-item">
-          <div class="social-icon"><i class="fas fa-users"></i></div>
-          <div class="social-info">
-            <div class="social-title">Quantum Dynamics</div>
-            <div class="social-sub">Roblox группа</div>
-          </div>
-          <div class="social-action">
-            <a href="https://www.roblox.com/communities/424646908/Quantum-Dynamics#!/about" target="_blank" rel="noopener" class="btn-green">
-              <i class="fas fa-users-between-lines"></i> Перейти
-            </a>
-          </div>
+        <div class="product-card" style="border-color: #2b9e3b;">
+          <div class="product-emoji">🟢</div>
+          <div class="product-name" style="color: #2b9e3b;">Зелёный</div>
+          <div class="product-desc">Код: #2B9E3B</div>
+          <div class="product-price">🌿 Новинка</div>
+          <button class="btn-order" data-item="Зелёный цвет">Выбрать</button>
+        </div>
+        <div class="product-card" style="border-color: #e07c1f;">
+          <div class="product-emoji">🟠</div>
+          <div class="product-name" style="color: #e07c1f;">Оранжевый</div>
+          <div class="product-desc">Код: #E07C1F</div>
+          <div class="product-price">🧡 Солнечный</div>
+          <button class="btn-order" data-item="Оранжевый цвет">Выбрать</button>
+        </div>
+        <div class="product-card" style="border-color: #d45a8a;">
+          <div class="product-emoji">🩷</div>
+          <div class="product-name" style="color: #d45a8a;">Розово-фиолетовый</div>
+          <div class="product-desc">Код: #D45A8A</div>
+          <div class="product-price">💗 Мечта</div>
+          <button class="btn-order" data-item="Розово-фиолетовый цвет">Выбрать</button>
+        </div>
+        <div class="product-card" style="border-color: #2d7bb6;">
+          <div class="product-emoji">🔵</div>
+          <div class="product-name" style="color: #2d7bb6;">Синий</div>
+          <div class="product-desc">Код: #2D7BB6</div>
+          <div class="product-price">💙 Океан</div>
+          <button class="btn-order" data-item="Синий цвет">Выбрать</button>
         </div>
       </div>
-      <div class="footer-note">
-        <i class="fas fa-crown" style="color:#7fbf7f;"></i> Teast · GitHub Pages
+
+      <div class="ad-small">
+        🎨 <span>СОЗДАЙ СВОЙ ЦВЕТ!</span> Смешай 2 любые котлетки и получи уникальный оттенок! 🎨
       </div>
     </div>
 
-    <!-- Gallery (только сетка) -->
-    <div id="tab-gallery" class="tab-pane">
-      <div class="gallery-section">
-        <div class="section-title"><i class="fas fa-camera-retro"></i> All Images</div>
-        <div class="gallery-grid" id="galleryGrid"></div>
+    <!-- ===== ДОСТАВКА ===== -->
+    <div id="page-delivery" class="page-section">
+      <div class="section-title">
+        🛵 Доставка <small>— быстро и красиво</small>
       </div>
-      <div class="footer-note">
-        <i class="fas fa-crown" style="color:#7fbf7f;"></i> Teast · GitHub Pages
+      <div class="divider"></div>
+
+      <div class="ad-banner">
+        <div class="ad-text">🚀 <span>БЕСПЛАТНАЯ ДОСТАВКА</span> при заказе от 1500 ₽!</div>
+        <div class="ad-emoji">🛵💨</div>
+      </div>
+
+      <div style="background: rgba(255,245,200,0.5); backdrop-filter: blur(4px); border-radius: 60px; padding: 30px; border: 6px solid #fbc16a; margin: 20px 0;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 24px;">
+          <div style="text-align: center; font-size: 1.3rem; background: rgba(255,255,200,0.3); padding: 20px; border-radius: 40px;">
+            <div style="font-size: 3rem;">⏱️</div>
+            <strong>30 минут</strong><br>среднее время
+          </div>
+          <div style="text-align: center; font-size: 1.3rem; background: rgba(255,255,200,0.3); padding: 20px; border-radius: 40px;">
+            <div style="font-size: 3rem;">📍</div>
+            <strong>По всему Бикини Боттом</strong><br>и окрестностям
+          </div>
+          <div style="text-align: center; font-size: 1.3rem; background: rgba(255,255,200,0.3); padding: 20px; border-radius: 40px;">
+            <div style="font-size: 3rem;">🐚</div>
+            <strong>Бесплатно</strong><br>при заказе от 1500 ₽
+          </div>
+        </div>
       </div>
     </div>
+
+    <!-- ===== КОНТАКТЫ ===== -->
+    <div id="page-contacts" class="page-section">
+      <div class="section-title">
+        ⭐ Контакты <small>— всегда на связи</small>
+      </div>
+      <div class="divider"></div>
+
+      <div style="background: rgba(255,245,200,0.5); backdrop-filter: blur(4px); border-radius: 60px; padding: 30px; border: 6px solid #fbc16a; margin: 20px 0;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 24px;">
+          <div style="text-align: center; font-size: 1.3rem; background: rgba(255,255,200,0.3); padding: 20px; border-radius: 40px;">
+            <div style="font-size: 3rem;">📞</div>
+            <strong>+7 (999) 123-45-67</strong>
+          </div>
+          <div style="text-align: center; font-size: 1.3rem; background: rgba(255,255,200,0.3); padding: 20px; border-radius: 40px;">
+            <div style="font-size: 3rem;">📧</div>
+            <strong>krabby@bikinibottom.com</strong>
+          </div>
+          <div style="text-align: center; font-size: 1.3rem; background: rgba(255,255,200,0.3); padding: 20px; border-radius: 40px;">
+            <div style="font-size: 3rem;">🏝️</div>
+            <strong>Бикини Боттом,</strong><br>ул. Коралловая, 2
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Фичи -->
+    <div class="bikini-features">
+      <div class="feature-item">
+        <span>🏝️</span>
+        <div><strong>Натуральные цвета</strong><br><span style="font-size:0.9rem;">без искусственных добавок</span></div>
+      </div>
+      <div class="feature-item">
+        <span>⏳</span>
+        <div><strong>Готовим за 10 мин</strong><br><span style="font-size:0.9rem;">быстрее медузы</span></div>
+      </div>
+      <div class="feature-item">
+        <span>💛</span>
+        <div><strong>Красиво как в кино</strong><br><span style="font-size:0.9rem;">для Инстаграма</span></div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ФУТЕР (О нас, Доставка, Акции → Акции убраны) -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div>
+        <span style="font-weight:800; font-size:1.4rem;">🍔 Красивый Крабс Бургер</span>
+        <div style="margin-top:8px;">
+          <a id="footerAbout">🏠 О нас</a> · 
+          <a id="footerDelivery">🛵 Доставка</a>
+          <!-- Акции убраны -->
+        </div>
+      </div>
+      <div style="text-align:right;">
+        <div>📞 +7 (999) 123-45-67</div>
+        <small>© 2026 — всё под водой вкусно</small>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== МОДАЛЬНОЕ ОКНО ===== -->
+  <div class="modal-overlay" id="errorModal">
+    <div class="modal-box">
+      <span class="modal-emoji">🧽🍔</span>
+      <h2>Ой! Технические неполадки!</h2>
+      <p>😅 <strong>Губка Боб</strong> перепутал все котлетки с губками!</p>
+      <p>🔄 Попробуйте позже — Сквидвард уже чинит кассу...</p>
+      <div class="modal-sub">🔧 Код ошибки: #KRABBY-404</div>
+      <br>
+      <button class="modal-btn" id="closeModal">✨ Ладно, попробую позже</button>
+    </div>
   </div>
-</div>
 
-<!-- Модальное окно -->
-<div class="modal" id="imageModal">
-  <div class="modal-content">
-    <span class="modal-close" onclick="closeModal()">&times;</span>
-    <img id="modalImage" src="" alt="">
-    <a id="modalDownload" class="modal-download" download href="#"><i class="fas fa-download"></i> Скачать</a>
-  </div>
-</div>
+  <!-- СКРИПТЫ -->
+  <script>
+    // ========== ВКЛАДКИ ==========
+    (function() {
+      const tabs = document.querySelectorAll('.nav a[data-tab]');
+      const pages = {
+        menu: document.getElementById('page-menu'),
+        colors: document.getElementById('page-colors'),
+        delivery: document.getElementById('page-delivery'),
+        contacts: document.getElementById('page-contacts')
+      };
 
-<!-- Toast -->
-<div id="liveToast" class="toast-msg">
-  <i class="fas fa-check-circle"></i> Ник luciendre скопирован!
-</div>
-
-<script>
-  (function() {
-    // ---------- НАСТРОЙКИ ----------
-    const screenshots = [
-      'images/screenshots/screenshot1.png',
-      'images/screenshots/screenshot2.png'
-    ];
-    
-    // Галерея — все файлы из папки images/gallery/
-    const galleryImages = [
-      'roblox.png',
-      'avatar2.png',
-      'cool_moment.png',
-      // Добавляйте свои файлы сюда
-    ];
-
-    // ---------- ПЕРЕКЛЮЧЕНИЕ БОЛЬШОГО СКРИНШОТА В ME ----------
-    let currentScreenshotIndex = 0;
-    const meScreenshotImg = document.getElementById('meScreenshotImg');
-    const screenshotIndicator = document.getElementById('screenshotIndicator');
-    const meScreenshotDiv = document.getElementById('meScreenshot');
-
-    function updateScreenshot() {
-      meScreenshotImg.style.opacity = '0.6';
-      setTimeout(() => {
-        meScreenshotImg.src = screenshots[currentScreenshotIndex];
-        meScreenshotImg.style.opacity = '1';
-        screenshotIndicator.textContent = `${currentScreenshotIndex+1}/${screenshots.length}`;
-      }, 200);
-    }
-
-    // Переключение каждые 5 секунд
-    setInterval(() => {
-      currentScreenshotIndex = (currentScreenshotIndex + 1) % screenshots.length;
-      updateScreenshot();
-    }, 5000);
-
-    // Клик по скриншоту открывает модалку с текущим изображением
-    meScreenshotDiv.addEventListener('click', () => {
-      openModal(screenshots[currentScreenshotIndex], `Screenshot ${currentScreenshotIndex+1}`);
-    });
-
-    // ---------- ЗАГРУЗКА ГАЛЕРЕИ ----------
-    const galleryGrid = document.getElementById('galleryGrid');
-    galleryImages.forEach(filename => {
-      const nameWithoutExt = filename.replace(/\.[^/.]+$/, "");
-      const caption = nameWithoutExt.replace(/_/g, ' ');
-      const src = `images/gallery/${filename}`;
-      const div = document.createElement('div');
-      div.className = 'gallery-item';
-      div.innerHTML = `
-        <img src="${src}" alt="${caption}" loading="lazy">
-        <div class="gallery-caption">${caption}</div>
-      `;
-      div.addEventListener('click', () => openModal(src, caption));
-      galleryGrid.appendChild(div);
-    });
-
-    // ---------- МОДАЛЬНОЕ ОКНО ----------
-    const modal = document.getElementById('imageModal');
-    const modalImg = document.getElementById('modalImage');
-    const modalDownload = document.getElementById('modalDownload');
-
-    window.openModal = function(src, caption) {
-      modalImg.src = src;
-      modalImg.alt = caption;
-      modalDownload.href = src;
-      modalDownload.setAttribute('download', caption.replace(/\s+/g, '_') + '.png');
-      modal.classList.add('active');
-    };
-
-    window.closeModal = function() {
-      modal.classList.remove('active');
-    };
-
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) closeModal();
-    });
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && modal.classList.contains('active')) {
-        closeModal();
+      function switchTab(tabId) {
+        Object.values(pages).forEach(page => page.classList.remove('active-page'));
+        if (pages[tabId]) pages[tabId].classList.add('active-page');
+        tabs.forEach(tab => tab.classList.remove('active-tab'));
+        document.querySelector(`.nav a[data-tab="${tabId}"]`)?.classList.add('active-tab');
       }
-    });
 
-    // ---------- ПЕРЕКЛЮЧЕНИЕ ВКЛАДОК ----------
-    const tabs = document.querySelectorAll('.tab-btn');
-    const panes = {
-      me: document.getElementById('tab-me'),
-      socials: document.getElementById('tab-socials'),
-      gallery: document.getElementById('tab-gallery')
-    };
+      tabs.forEach(tab => {
+        tab.addEventListener('click', function(e) {
+          e.preventDefault();
+          const tabId = this.dataset.tab;
+          if (tabId) switchTab(tabId);
+        });
+      });
 
-    function switchTab(tabId) {
-      tabs.forEach(btn => btn.classList.toggle('active', btn.dataset.tab === tabId));
-      for (let id in panes) {
-        panes[id].classList.toggle('active', id === tabId);
+      // Ссылки в футере
+      document.getElementById('footerAbout')?.addEventListener('click', function(e) {
+        e.preventDefault();
+        // Можно показать модалку или просто переключить на контакты
+        // Сделаем переключение на "Контакты" (там есть информация о нас)
+        switchTab('contacts');
+      });
+
+      document.getElementById('footerDelivery')?.addEventListener('click', function(e) {
+        e.preventDefault();
+        switchTab('delivery');
+      });
+
+      // По умолчанию меню
+      switchTab('menu');
+    })();
+
+    // ========== СМЕНА ЦВЕТА БУКВ ==========
+    (function() {
+      const colorBtns = document.querySelectorAll('.color-btn');
+      const letters = document.querySelectorAll('.rainbow-text .c1, .rainbow-text .c2, .rainbow-text .c3, .rainbow-text .c4, .rainbow-text .c5, .rainbow-text .c6');
+
+      const colorMap = {
+        'c1': '#d42f2f',
+        'c2': '#8b3fbf',
+        'c3': '#2b9e3b',
+        'c4': '#e07c1f',
+        'c5': '#d45a8a',
+        'c6': '#2d7bb6'
+      };
+
+      function setAllLetters(colorClass) {
+        const newColor = colorMap[colorClass];
+        if (!newColor) return;
+        letters.forEach(el => {
+          el.style.color = newColor;
+        });
+        colorBtns.forEach(btn => btn.classList.remove('active'));
+        document.querySelector(`.color-btn[data-color="${colorClass}"]`)?.classList.add('active');
       }
-    }
 
-    tabs.forEach(btn => {
-      btn.addEventListener('click', () => {
-        if (btn.dataset.tab) switchTab(btn.dataset.tab);
+      colorBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          const color = this.dataset.color;
+          if (color) setAllLetters(color);
+        });
       });
-    });
 
-    // ---------- КОПИРОВАНИЕ DISCORD ----------
-    window.copyDiscord = function() {
-      const nick = "luciendre";
-      navigator.clipboard.writeText(nick).then(showToast).catch(() => {
-        const ta = document.createElement('textarea');
-        ta.value = nick;
-        document.body.appendChild(ta);
-        ta.select();
-        document.execCommand('copy');
-        document.body.removeChild(ta);
-        showToast();
+      const activeBtn = document.querySelector('.color-btn.active');
+      if (activeBtn) {
+        const defaultColor = activeBtn.dataset.color;
+        if (defaultColor) setAllLetters(defaultColor);
+      } else {
+        setAllLetters('c1');
+      }
+    })();
+
+    // ========== МОДАЛКА ПРИ ЗАКАЗЕ ==========
+    (function() {
+      const modal = document.getElementById('errorModal');
+      const closeBtn = document.getElementById('closeModal');
+      const orderBtns = document.querySelectorAll('.btn-order');
+
+      function showModal(itemName) {
+        const modalText = modal.querySelector('p');
+        if (itemName) {
+          modalText.innerHTML = `😅 <strong>Губка Боб</strong> перепутал все котлетки с губками!<br>«<em>${itemName}</em>» временно недоступна.`;
+        } else {
+          modalText.innerHTML = `😅 <strong>Губка Боб</strong> перепутал все котлетки с губками!<br>🔄 Попробуйте позже — Сквидвард уже чинит кассу...`;
+        }
+        modal.classList.add('show');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeModal() {
+        modal.classList.remove('show');
+        document.body.style.overflow = '';
+      }
+
+      closeBtn.addEventListener('click', closeModal);
+      modal.addEventListener('click', function(e) {
+        if (e.target === this) closeModal();
       });
-    };
-
-    function showToast() {
-      const toast = document.getElementById('liveToast');
-      toast.classList.add('show');
-      setTimeout(() => toast.classList.remove('show'), 1800);
-    }
-
-    const avatar = document.querySelector('.avatar-me');
-    if(avatar) {
-      avatar.addEventListener('click', () => {
-        avatar.style.transform = 'scale(0.96)';
-        setTimeout(() => avatar.style.transform = '', 80);
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeModal();
       });
-    }
-  })();
-</script>
+
+      orderBtns.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          const itemName = this.dataset.item || 'Котлетка';
+          showModal(itemName);
+        });
+      });
+    })();
+  </script>
+
 </body>
 </html>
